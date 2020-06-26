@@ -220,9 +220,9 @@
                 // Bloodhound (since 0.11) needs three arguments.
                 // Two of them are callback functions (sync and async) for local and remote data processing
                 // see https://github.com/twitter/typeahead.js/blob/master/src/bloodhound/bloodhound.js#L132
-                if ($.isFunction(this.source) && this.source.length === 3) {
+                if ((typeof this.source === 'function') && this.source.length === 3) {
                     this.source(this.query, $.proxy(this.process, this), $.proxy(this.process, this));
-                } else if ($.isFunction(this.source)) {
+                } else if ((typeof this.source === 'function')) {
                     this.source(this.query, $.proxy(this.process, this));
                 } else if (this.source) {
                     this.process(this.source);
